@@ -1,28 +1,175 @@
 % Ubah judul dan label berikut sesuai dengan yang diinginkan.
-\section{Lorem ipsum}
-\label{sec:loremipsum}
+\section{Hasil \& Pembahasan}
+\label{sec:hasil}
 
 % Ubah paragraf-paragraf pada bagian ini sesuai dengan yang diinginkan.
 
 % Contoh input beberapa gambar pada halaman.
 \begin{figure*}
   \centering
-  \subfloat[Hasil A]{\includegraphics[width=.4\textwidth]{example-image-a}
+  \subfloat[Modul koneksi]{\includegraphics[width=.4\textwidth]{gambar/tampil-kon-bl.png}
     \label{fig:hasila}}
   \hfil
-  \subfloat[Hasil B]{\includegraphics[width=.4\textwidth]{example-image-b}
+  \subfloat[Modul pekerjaan sinkronisasi]{\includegraphics[width=.4\textwidth]{gambar/tampil-jon-bl.png}
     \label{fig:hasilb}}
-  \caption{Contoh input beberapa gambar.}
+  \hfil
+  \subfloat[Modul eksekusi sinkronisasi]{\includegraphics[width=.4\textwidth]{gambar/eksekuki-tampil-bl.png}
+    \label{fig:hasilc}}
+  \hfil
+  \caption{Hasil Implementasi Perangkat Lunak}
   \label{fig:hasil}
 \end{figure*}
 
-\lipsum[16-18]
+\subsection{Implementasi}
+Hasil implementasi Pada Gambar \ref{fig:hasil} menunjukkan tampilan pada tiga modul yang menjadi 
+fondasi utama dalam menyelesaikan proses migrasi, yaitu modul koneksi, modul pekerjaan sinkronisasi, dan modul eksekusi sinkronisasi. Modul koneksi digunakan untuk menyimpan informasi koneksi basis data yang digunakan baik sebagai sumber ataupun tujuan pada proses sinkronisasi. Modul pekerjaan sinkronisasi digunakan untuk membuat proses sinkronisasi. Modul eksekusi digunakan untuk menampilkan setiap eksekusi yang dilkaukan pada pekerjaan sinkronisasi. 
 
-% Contoh input potongan kode dari file.
-\lstinputlisting[
-  language=Python,
-  caption={Program perhitungan bilangan prima.},
-  label={lst:bilanganprima}
-]{program/bilangan-prima.py}
+\subsection{Pembahasan}
+Implementasi aplikasi sesuai dengan \emph{use-case} memerlukan pengujian setelahnya guna memastikan seluruh fungsionalitas berjalan dengan semestinya. Pengujian dilakukan dengan membandingkan keluaran fungsi terkait \emph{use-case} dengan keluaran yang seharusnya dihasilkan oleh fungsi tersebut. Jika keduanya menghasilkan nilai yang sama, maka dapat disimpulkan bahwa fungsi yang mendukung \emph{use-case} tersebut telah berhasil. Selain pengujian pada fungsi, dilakukan juga pengujian terhadap tampilan aplikasi dengan melakukan debugging manual. Proses debugging manual ini bertujuan untuk memastikan bahwa antarmuka pengguna berfungsi sebagaimana mestinya, tampilan visualnya sesuai dengan desain yang diinginkan, serta interaksi pengguna berjalan tanpa hambatan. Pengujian frontend ini melibatkan identifikasi elemen antarmuka yang perlu diuji, pengembangan skenario pengujian untuk setiap elemen, dan pelaksanaan pengujian untuk memastikan bahwa semua elemen berfungsi dengan benar. Tabel \ref{tbl:fungsional} menyajikan hasil pengujian fungsionalitas.
 
-\lipsum[19-20]
+\begin{table}
+  \caption{Hasil pengujian fungsionalitas}
+  \label{tab:fungsional}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Kode} & \textbf{Nama Fitur} & \textbf{Hasil Uji} \\
+    \midrule
+    UC1-01 & Daftar & Berhasil \\
+  UC1-02 & Masuk & Berhasil \\
+%   \hline
+ UC1-03 & Keluar & Berhasil \\
+%   \hline
+ UC2-01 & Tambah koneksi & Berhasil \\
+%   \hline
+ UC2-02 & Tampil semua koneksi & Berhasil \\
+%   \hline
+ UC2-03 & Tampil detail koneksi & Berhasil \\
+%   \hline
+UC2-04 & Ubah koneksi & Berhasil \\
+%   \hline
+ UC2-05 & Hapus koneksi & Berhasil \\
+%   \hline
+ UC2-06 & Test konfigurasi koneksi & Berhasil \\
+%   \hline
+ UC2-07 & Tampil informasi skema koneksi & Berhasil \\
+%   \hline
+ UC3-01 & Tambah pekerjaan sinkronisasi &  Berhasil\\
+%   \hline
+ UC3-02 & Tampil semua pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+ UC3-03 & Tampil detail pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+ UC3-04 & Hapus pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+ UC3-05 & Jalan pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+ UC3-06 & Tampil semua eksekusi sinkronisasi & Berhasil \\
+%   \hline
+ UC3-06 & Tampil detail eksekusi sinkronisasi & Berhasil \\
+%   \hline
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Selanjutnya, dilakukan evaluasi dan pengujian terhadap kualitas data hasil migrasi. Evaluasi ini penting untuk memastikan bahwa data yang telah dipindahkan ke sistem baru tetap akurat, lengkap, dan konsisten. Proses evaluasi ini melibatkan beberapa tahapan, antara lain validasi data, verifikasi data, dan pengujian integritas data. Validasi data dilakukan untuk memastikan bahwa data yang dipindahkan sesuai dengan format dan standar yang ditetapkan. Verifikasi data bertujuan untuk mengecek kembali keakuratan data dengan membandingkannya dengan sumber data asli. Sementara itu, pengujian integritas data dilakukan untuk memastikan bahwa hubungan antar data tetap terjaga dengan baik dalam sistem baru.  
+    
+Untuk mendukung pengujian ini, penulis menyiapkan basis data sumber yang merupakan basis data PostgreSQL dengan nama \textbf{Sarpras} dan basis data tujuan yang merupakan basis data PostgreSQL dengan nama \textbf{SarprasTujuan}. Proses uji kualitas dilakukan dengan membandingkan jumlah baris pada basis data SarprasTujuan dengan basis data Sarpras. Langkah ini penting untuk memastikan bahwa seluruh data telah berhasil dipindahkan tanpa ada yang hilang atau terduplikasi. Selain membandingkan jumlah baris, proses uji kualitas juga melibatkan pemeriksaan beberapa aspek lain, seperti konsistensi data antar tabel dan validitas data individual. Pemeriksaan ini bertujuan untuk memastikan bahwa setiap entri data pada basis data tujuan sesuai dengan entri pada basis data sumber.\textbf{Tabel \ref{tab:baris}} merupakan hasil eksekusi query jumlah baris pada setiap tabel basis data Sarpras dan SarprasTujuan.
+
+\begin{table}
+  \caption{Hasil pengujian perbandingan jumlah baris}
+  \label{tab:baris}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Nama tabel} & \textbf{Sarpras} & \textbf{SarprasTujuan} \\
+    \midrule
+    migrations & 29 & 29 \\
+    
+    subunits & 17 & 17 \\
+    
+    users & 219 & 219 \\
+    
+    units & 3 & 3 \\
+    
+    subunit\_members & 121 & 121 \\
+    
+    squads & 6 & 6 \\
+    
+    members & 212 & 212 \\
+    
+    squad\_members & 76 & 76 \\
+    
+    instruments & 6 & 6 \\
+    
+    passcodes & 142 & 142 \\
+    
+    locations & 9 & 9 \\
+    
+    location\_units & 7 & 7 \\
+    
+    cars & 29 & 29 \\
+    
+    interval\_schedules & 10639 & 10639 \\
+    
+    shift\_schedules & 4 & 4 \\
+    \bottomrule
+  \end{tabular}
+  \end{table}
+
+    Berdasarkan hasil \ref{tab:baris}, ada beberapa hal yang perlu didiskusikan terkait dengan pengujian dan sinkronisasi data. Pertama, pengujian terkait uji kualitas data berhasil dibuktikan dengan jumlah tabel dan perbandingan antar jumlah baris di kedua basis data untuk masing-masing tabel yang memiliki nilai yang sama. Keberhasilan dalam uji kualitas data ini menunjukkan bahwa proses migrasi telah dilakukan dengan benar dan semua data telah terintegrasi dengan baik ke dalam sistem baru. Hal ini memberikan keyakinan bahwa data di basis data tujuan dapat digunakan untuk operasional sehari-hari tanpa masalah. Selain itu, kesamaan jumlah baris juga mengindikasikan bahwa tidak ada data yang hilang atau terduplikasi selama proses migrasi. Hal tersebut penting karena data yang hilang bisa menyebabkan kekurangan informasi yang diperlukan, sedangkan data yang terduplikasi bisa menyebabkan inkonsistensi dan kesalahan dalam analisis data.
+
+    Langkah berikutnya setelah pengujian kualitas data migrasi adalah melakukan pengecekan konsistensi dan validitas data secara lebih mendalam. Pengecekan konsistensi ini penting untuk memastikan bahwa relasi antar tabel dalam basis data tetap utuh dan tidak mengalami anomali setelah proses migrasi. Selain itu, dilakukan pula uji lebih mendalam seperti pengujian nilai-nilai unik, pengecekan referensi silang antar entitas, dan tipe kolom pada setiap tabel. Untuk memenuhi kebutuhan pengujuan tersebut, digunakan alat \emph{PostgresCompare}. Berdasarkan hasil uji \emph{PostgresCompare}, didapatkan hasil bahwa terdapat 26 tabel pada kedua basis data identikal, mulai dari skema, nama tabel, tipe kolom pada setiap tabel, dan index pada setial tabel. 
+
+    Namun demikian, dari pengujian sinkronisasi, penulis menemukan keterbatasan aplikasi. Salah satu masalah yang dihadapi adalah ketika dilakukan migrasi antara dua basis data yang memiliki tipe yang berbeda, seperti MySQL dan PostgreSQL. Permasalahan muncul karena perbedaan dalam pemetaan (mapping) antara struktur data PostgreSQL dan MySQL. Hal ini mempengaruhi proses sinkronisasi data yang seharusnya mulus, namun menjadi kompleks karena perbedaan dalam cara kedua sistem basis data ini memperlakukan beberapa tipe data dan indeks. Penulis berharap untuk penelitian selanjutnya, dapat dipertimbangkan untuk menerapkan pendekatan tipe basis data berbeda dalam konteks migrasi dan sinkronisasi. Pendekatan ini akan menguji kemampuan sistem untuk mentransfer data antara berbagai tipe basis data, seperti antara MySQL dan PostgreSQL, serta memperluas ruang lingkup adaptasi sistem terhadap perbedaan dalam struktur dan karakteristik tipe data yang digunakan oleh masing-masing sistem.
+
+  
+
+% \begin{longtable}{|l|l|l}
+%   \caption{Hasil pengujian fungsionalitas} \label{tbl:fungsional} \\
+%   \hline
+%   \textbf{No.} & \textbf{Kode} & \textbf{Nama Fitur} & \textbf{Hasil Uji} \\
+%   \hline
+%   \endfirsthead
+%   \endhead
+%   \endfoot
+  
+%   \hline
+%   \endlastfoot
+  
+%   1 & UC1-01 & Daftar & Berhasil \\
+%   \hline
+%   2 & UC1-02 & Masuk & Berhasil \\
+%   \hline
+%   3 & UC1-03 & Keluar & Berhasil \\
+%   \hline
+%   4 & UC2-01 & Tambah koneksi & Berhasil \\
+%   \hline
+%   5 & UC2-02 & Tampil semua koneksi & Berhasil \\
+%   \hline
+%   6 & UC2-03 & Tampil detail koneksi & Berhasil \\
+%   \hline
+%   7 & UC2-04 & Ubah koneksi & Berhasil \\
+%   \hline
+%   8 & UC2-05 & Hapus koneksi & Berhasil \\
+%   \hline
+%   9 & UC2-06 & Test konfigurasi koneksi & Berhasil \\
+%   \hline
+%   10 & UC2-07 & Tampil informasi skema koneksi & Berhasil \\
+%   \hline
+%   11 & UC3-01 & Tambah pekerjaan sinkronisasi &  Berhasil\\
+%   \hline
+%   12 & UC3-02 & Tampil semua pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+%   13 & UC3-03 & Tampil detail pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+%   14 & UC3-04 & Hapus pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+%   15 & UC3-05 & Jalan pekerjaan sinkronisasi & Berhasil \\
+%   \hline
+%   16 & UC3-06 & Tampil semua eksekusi sinkronisasi & Berhasil \\
+%   \hline
+%   17 & UC3-06 & Tampil detail eksekusi sinkronisasi & Berhasil \\
+%   \hline
+%   \end{longtable}
+

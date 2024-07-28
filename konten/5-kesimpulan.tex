@@ -4,4 +4,13 @@
 
 % Ubah paragraf-paragraf pada bagian ini sesuai dengan yang diinginkan.
 
-\lipsum[21-23]
+Penelitian ini berhasil merancang perangkat lunak sistem migrasi basis data. Perancangan melibatkan proses penggalian kebutuhan, perancangan arsitektur sistem, 
+dan pembuatan \emph{use-case}. Penggalian kebutuhan dilakukan kepada dua aspek, yaitu kebutuhan fungsional dan nonfungsioanl. Berdasarkan kebutuhan tersebut dibangun
+arsitektur sistem yang dapat memenuhi kebutuhan, mulai dari teknologi yang diperlukan, metode migrasi, hingga mekanisme pelaksanaan. Setelah itu dilakukan pembuatan \emph{use-case}
+untuk mendetailkan lebih dalam mengenai setiap kebutuhan, proses yang dilalui di sistem, dan mempermudah proses pembangunan perangkat lunak.
+
+Penelitian ini menghasilkan perangkat lunak yang mampu menangani proses migrasi atau perpindahan data dari basis data sumber ke basis data tujuan. Terdapat tiga modul yang dibangun guna mendukung proses tersebut, yaitu modul koneksi, modul pekerjaan sinkronisasi, dan modul eksekusi sinkronisasi. Selain ketiga modul tersebut, juga terdapat modul autentikasi untuk mendukung kebutuhan keamanan perangkat lunak. Keberadaan modul-modul tersebut memastikan bahwa proses migrasi dapat berjalan dengan efektif, yang telah dibuktikan dengan uji coba kualitas data pada saat proses migrasi berhasil dilakukan. Hasil uji coba menunjukkan tidak ada data yang hilang atau terduplikasi selama proses migrasi. Selain itu, perangkat lunak juga mampu mempertahankan integritas referensial antar tabel, yang dibuktikan dengan melakukan perbandingan skema basis data sumber dengan basis data tujuan. Hasil uji mendalam dengan menggunakan alat \emph{PostgresCompare} juga menghasilkan hasil bahwa 26 tabel pada kedua basis data memiliki struktur yang identikal. Hasil tersebut diharapkan dapat mendukung integritas data dari berbagai sumber basis data rumah sakit yang saling terpisah dan tidak tersambung satu sama lain.
+
+Penelitian ini juga masih memiliki berbagai keterbatasan. Pertama, sistem ini belum sepenuhnya mampu menangani perbedaan dalam pemetaan struktur data antara MySQL dan PostgreSQL secara otomatis. Penelitian di masa depan harus mempertimbangkan pengembangan alat yang lebih canggih untuk mengelola perbedaan ini secara otomatis. Kedua, modul koneksi saat ini baru bisa menerima koneksi dari basis data MySQL dan PostgreSQL. Oleh karena itu, pada penelitian selanjutnya perlu dilakukan pengembangan agar modul koneksi ini dapat mendukung lebih banyak jenis basis data.
+
+
