@@ -5,25 +5,77 @@
 % Ubah paragraf-paragraf pada bagian ini sesuai dengan yang diinginkan.
 
 % Contoh input beberapa gambar pada halaman.
-\begin{figure*}
+\subsection{Arsitektur Sistem}
+Penelitian tugas akhir ini dirancang untuk memenuhi kebutuhan sistem dalam memindahkan data yang berada di dalam jaringan lokal rumah sakit. Data yang dipindahkan akan digunakan sebagai sumber data dalam implementasi dashboard nasional rumah sakit guna memantau kinerja rumah sakit di seluruh cabang. Aplikasi ini melibatkan penggunaan beberapa teknologi yang berperan penting dalam penyelesaian kasus tersebut.
+  \subsubsection{Express JS} 
+  Express JS digunakan sebagai kerangka kerja dalam pembuatan API (\emph{Application Program Interface}) yang berperan dalam pengembangan aplikasi web berbasis Node.js. Teknologi ini menyediakan fitur - fitur yang mempermudah pengaturan rute API, manajemen permintaan dan respons, serta intergrasi dengan berbagai modul dan middleware. Dengan Express JS, pengembang dapat mengimplementasikan logika bisnis yang kompleks dengan lebih efisien dan memisahkan antarmuka pengguna (UI) dari logika aplikasi dengan menggunakan pendekatan yang modular dan terstruktur. Kelebihan utama dari Express JS adalah kemampuannya dalam menangani permintaan secara asynchronous, menjadikannya pilihan yang ideal untuk aplikasi real-time dan berbasis data yang dinamis.
+
+  \subsubsection{Next.js}
+  Next.js digunakan sebagai kerangka kerja \emph{front-end} yang menggunakan menggunakan \emph{library} React. Salah satu keunggulan utama Next.js adalah kemampuannya untuk menyediakan pengalaman pengguna yang responsif dan cepat dengan kombinasi \emph{server-side rendering} (SSR) dan \emph{static site generation} (SSG). SSR memungkinkan aplikasi untuk menghasilkan halaman secara dinamis di sisi server sebelum dikirim ke browser, sementara SSG memungkinkan pembangkitan halaman statis yang dapat di-cache untuk mempercepat waktu pemuatan. Next.js juga menawarkan fitur-fitur seperti pembuatan rute otomatis, pengelolaan status dan props, serta pengoptimalan gambar secara terintegrasi. Dengan menggunakan Next.js, pengembang dapat fokus pada pengembangan fitur-fitur krusial aplikasi tanpa harus memikirkan kompleksitas konfigurasi infrastruktur.
+
+  \subsubsection{ElectronJS}
+  Electron adalah kerangka kerja yang memungkinkan pengembang untuk membangun aplikasi desktop lintas platform menggunakan teknologi web seperti HTML, CSS, dan JavaScript. Dengan Electron, pengembang dapat mengemas aplikasi web menjadi paket instalasi yang dapat dijalankan di berbagai sistem operasi seperti Windows, macOS, dan Linux tanpa perlu melakukan penyesuaian tambahan yang signifikan. Keunggulan utama Electron adalah kemampuannya untuk memberikan akses langsung ke API sistem operasi, memungkinkan aplikasi untuk memanfaatkan fitur-fitur natif seperti notifikasi desktop, akses sistem file, dan integrasi dengan sistem tray, sambil mempertahankan fleksibilitas dan kekuatan pengembangan menggunakan teknologi web modern. 
+
+  \subsubsection{Temporal.io}
+  Temporal.io adalah aplikasi pihak ketiga yang digunakan untuk mengelola dan mengkoordinasikan tugas migrasi dengan memanfaatkan \emph{worker} untuk menyelesaikan tugas tersebut. Aplikasi ini menawarkan kemampuan untuk memodelkan proses bisnis yang kompleks sebagai \emph{workflow}, memastikan tugas-tugas yang saling bergantung dieksekusi dengan urutan yang tepat dan efisien. Salah satu keunggulan Temporal.io adalah fitur pengulangan otomatis, Temporal.io dapat menangani kegagalan tugas secara transparan, memastikan bahwa semua langkah dalam proses migrasi selesai dengan sukses. Selain itu, aplikasi ini menyediakan monitoring dan logging yang mendalam, sehingga memungkinkan pengembang untuk memantau status dan performa setiap tugas secara real-time. Untuk meningkatkan keamanan, Temporal.io menggunakan protokol TLS (Transport Layer Security) untuk mengamankan komunikasi antar \emph{worker}, server, dan basis data, melindungi data dari potensi penyadapan dan serangan selama proses transmisi
+
+  \subsubsection{Docker}
+  Docker berperan dalam mengemas aplikasi dan semua dependensinya dalah sebuah kontainer serta mengkoordinasikan hubungan setiap kontainer. Docker berperan dalam mengemas aplikasi dan semua dependensinya dalam sebuah kontainer serta mengkoordinasikan hubungan setiap kontainer. Dengan menggunakan Docker, pengembang dapat memastikan bahwa aplikasi berjalan dengan konsisten di berbagai lingkungan, baik itu di mesin lokal pengembang, server pengujian, atau di produksi. Docker juga mendukung isolasi yang kuat, yang berarti setiap kontainer berjalan secara independen tanpa mengganggu kontainer lainnya, mengurangi risiko konflik antar dependensi. Selain itu, Docker memfasilitasi skalabilitas dengan mudah, memungkinkan penyebaran dan pengelolaan banyak kontainer secara bersamaan melalui alat orkestrasi seperti Docker Compose. Hal ini membuat Docker sangat efektif dalam mengimplementasikan arsitektur mikroservis, di mana 
+  \subsubsection{PostgreSQL}
+  PostgreSQL adalah sistem manajemen basis data relasional (RDBMS) yang powerful dan open source. Dikenal karena kehandalannya dan kemampuan untuk menangani beban kerja yang besar, PostgreSQL menawarkan fitur-fitur seperti dukungan untuk transaksi ACID (Atomicity, Consistency, Isolation, Durability), indeks yang kuat, serta berbagai jenis data yang fleksibel termasuk JSON dan XML. PostgreSQL juga mendukung ekstensi yang memperluas fungsionalitasnya, seperti pengelolaan data spasial, full-text search, dan pengolahan data time-series. Dengan komunitas yang aktif dan dukungan yang luas, PostgreSQL menjadi pilihan yang populer untuk berbagai aplikasi dari skala kecil hingga besar.
+
+\subsection{Analisis Kebutuhan}
+
+\subsubsection{4.1.2.1 Kebutuhan Fungsional}
+Berikut adalah kebutuhan fungsional yang dibutuhkan dalam menyelesaikan aplikasi pada tugas akhir ini.
+
+\begin{table}
+  \caption{Hasil pengujian perbandingan jumlah baris}
+  \label{tab:baris}
   \centering
-  \subfloat[Modul koneksi]{\includegraphics[width=.4\textwidth]{gambar/tampil-kon-bl.png}
-    \label{fig:hasila}}
-  \hfil
-  \subfloat[Modul pekerjaan sinkronisasi]{\includegraphics[width=.4\textwidth]{gambar/tampil-jon-bl.png}
-    \label{fig:hasilb}}
-  \hfil
-  \subfloat[Modul eksekusi sinkronisasi]{\includegraphics[width=.4\textwidth]{gambar/eksekuki-tampil-bl.png}
-    \label{fig:hasilc}}
-  \hfil
-  \caption{Hasil Implementasi Perangkat Lunak}
-  \label{fig:hasil}
-\end{figure*}
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Nama tabel} & \textbf{Sarpras} & \textbf{SarprasTujuan} \\
+    \midrule
+    migrations & 29 & 29 \\
+    
+    subunits & 17 & 17 \\
+    
+    users & 219 & 219 \\
+    
+    units & 3 & 3 \\
+    
+    subunit\_members & 121 & 121 \\
+    
+    squads & 6 & 6 \\
+    
+    members & 212 & 212 \\
+    
+    squad\_members & 76 & 76 \\
+    
+    instruments & 6 & 6 \\
+    
+    passcodes & 142 & 142 \\
+    
+    locations & 9 & 9 \\
+    
+    location\_units & 7 & 7 \\
+    
+    cars & 29 & 29 \\
+    
+    interval\_schedules & 10639 & 10639 \\
+    
+    shift\_schedules & 4 & 4 \\
+    \bottomrule
+  \end{tabular}
+  \end{table}
 
-\subsection{Implementasi}
-Hasil implementasi Pada Gambar \ref{fig:hasil} menunjukkan tampilan pada tiga modul yang menjadi 
-fondasi utama dalam menyelesaikan proses migrasi, yaitu modul koneksi, modul pekerjaan sinkronisasi, dan modul eksekusi sinkronisasi. Modul koneksi digunakan untuk menyimpan informasi koneksi basis data yang digunakan baik sebagai sumber ataupun tujuan pada proses sinkronisasi. Modul pekerjaan sinkronisasi digunakan untuk membuat proses sinkronisasi. Modul eksekusi digunakan untuk menampilkan setiap eksekusi yang dilkaukan pada pekerjaan sinkronisasi. 
 
+
+\subsubsection{4.1.2.2 Kebutuhan Nonfungsional}
+Berikut merupakan beberapa kebutuhan non-fungsional yang dibutuhkan dalam menyelesaikan penelitian ini.
+
+Aplikasi dapat dijalankan pada sistem operasi Windows, Linux, dan macOS. Aplikasi dapat menyimpan data kredensial koneksi basis data dengan aman. Aplikasi dapat menerapkan migrasi data dengan aman. Aplikasi hanya dapat diakses oleh pengguna yang berhak dan memiliki akses kredensial.
 \subsection{Pembahasan}
 Implementasi aplikasi sesuai dengan \emph{use-case} memerlukan pengujian setelahnya guna memastikan seluruh fungsionalitas berjalan dengan semestinya. Pengujian dilakukan dengan membandingkan keluaran fungsi terkait \emph{use-case} dengan keluaran yang seharusnya dihasilkan oleh fungsi tersebut. Jika keduanya menghasilkan nilai yang sama, maka dapat disimpulkan bahwa fungsi yang mendukung \emph{use-case} tersebut telah berhasil. Selain pengujian pada fungsi, dilakukan juga pengujian terhadap tampilan aplikasi dengan melakukan debugging manual. Proses debugging manual ini bertujuan untuk memastikan bahwa antarmuka pengguna berfungsi sebagaimana mestinya, tampilan visualnya sesuai dengan desain yang diinginkan, serta interaksi pengguna berjalan tanpa hambatan. Pengujian frontend ini melibatkan identifikasi elemen antarmuka yang perlu diuji, pengembangan skenario pengujian untuk setiap elemen, dan pelaksanaan pengujian untuk memastikan bahwa semua elemen berfungsi dengan benar. Tabel \ref{tbl:fungsional} menyajikan hasil pengujian fungsionalitas.
 
